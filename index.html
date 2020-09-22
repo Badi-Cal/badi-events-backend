@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="badidate/localBadiDate-msm-locales.min.js">
+badiDateSettings({
+  useClockLocations: false, // default: true
+  defaultLanguage: 'en', // default: 'en'
+  underlineFormat: 'diacritic' // default: 'css'
+});
+</script>
+
+<script src="luxon/luxon.min.js"></script>
+<link rel="icon" type="image/png"
+ href="http://xn--bad-tma.com/go/star.png">
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Hola Mundo</h1>
+<p>Todos los duelos con pan son buenos.</p>
+<p id="demo"></p>
+<script> 
+const date = Date('2015-03-21');
+// const myBadiDate2 = new BadiDate(date);
+// const  datetime = luxon.DateTime.fromISO('2015-03-21');
+//const datetime = luxon.DateTime.fromISO('2020-09-25T19:08:34.123');
+// const myBadiDate1 = new BadiDate(datetime);
+// const myBadiDate1 = new BadiDate({ year: 172, month: 1, day: 1 });
+// const myBadiDate = new BadiDate({ year: 172, month: 1, day: 1 });
+// const myBadiDate1 = new BadiDate(datetime);
+// const date1 = new LocalBadiDate({ year: 2020, month: 1, day: 1 }, -34.6, -58.45, 'America/Argentina/Buenos_Aires');
+// document.getElementById("demo").innerHTML = datetime + "<br>" + myBadiDate1 + "<br>" + date1;
+document.getElementById("demo").innerHTML = date + "<br>"  + "<br>";
+// document.getElementById("demo").innerHTML = datetime + "<br>" + date1;
+// document.getElementById("demo").innerHTML = datetime + "<br>" + "<br>";
+</script>
+
+<p><em>Thank you.</em></p>
+</body>
+</html>
