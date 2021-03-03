@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head lang="es">
+		<!-- Technical Metadata -->
+		<meta charset=utf-8>
+		<meta http-equiv=X-UA-Compatible content="IE=edge">
+		<meta name=viewport content="width=device-width,initial-scale=1">
+		<style>
+			@-ms-viewport{
+				width: device-width;
+			}
+		</style>
+
+		<!-- App Metadata -->
+		<title>BadiCal Events App</title>
+
+		<!-- Stylings -->
+		<link rel="icon" type="image/png" href="star.png">
+		<link href="style/style.css" rel="stylesheet" type="text/css" />
+
+		<!-- JavaScript -->
+		
+		<script src="js/luxon.js"></script>
+	</head>
+	<body onload="start();">
+		<header>
+			<div>
+				<h1>Hola Mundo</h1>
+				<p>Todos los duelos con pan son buenos.</p>
+			</div>
+		</header>
+		<article>
+			<div>
+				<form onclick="return false;">
+					<fieldset>
+						<legend>Date:</legend>
+						<select id="year"></select>
+						<select id="month"></select>
+						<select id="day"></select>
+					</fieldset>
+					<div>
+						<button onclick="updateDate()">Convert</button>
+					</div>
+				</form>
+				<p id="demo"></p>
+			</div>
+		</article>
+		<footer>
+			<div>
+				<p><em>Thank you.</em></p>
+			</div>
+		</footer>
+		<script src="js/badi-events.js"></script>
+		<!--
+	  		Note: badidate must load after luxon
+			This is not really sustainable since you cannot
+			guarantee when the HTTP request for a script will comeback.
+			We can tighten up this later though.
+		-->
+		<script src="js/badidate.js"></script>
+	</body>
+</html>
