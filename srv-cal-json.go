@@ -1,3 +1,4 @@
+* Erik Monti, erik@monti.org
 package main
 
 import (
