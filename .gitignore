@@ -1,5 +1,4 @@
 /.env
-<<<<<<< HEAD
 /nohup.out
 /token.json
 /credentials.json
@@ -8,5 +7,4 @@
 /vault
 /badidate
 /luxon
-=======
->>>>>>> 166eabfeec2bfe413d9644f82d87f744504822b9
+/badi-events-backend
