@@ -1,5 +1,6 @@
 /.env
 /token.json
+<<<<<<< HEAD
 /credentials.json
 /nohup.out
 /html
@@ -8,3 +9,5 @@
 /vault
 /badidate
 /luxon
+=======
+>>>>>>> 166eabfeec2bfe413d9644f82d87f744504822b9

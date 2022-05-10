@@ -19,6 +19,7 @@
 		<link href="style/style.css" rel="stylesheet" type="text/css" />
 
 		<!-- JavaScript -->
+<<<<<<< HEAD
 		<script src="js/badidate.js">
 			badiDateSettings({
 			  useClockLocations: false, // default: true
@@ -30,6 +31,12 @@
         </script>
 	</head>
 	<body>
+=======
+		
+		<script src="js/luxon.js"></script>
+	</head>
+	<body onload="start();">
+>>>>>>> 166eabfeec2bfe413d9644f82d87f744504822b9
 		<header>
 			<div>
 				<h1>Hola Mundo</h1>
@@ -58,5 +65,15 @@
 			</div>
 		</footer>
 		<script src="js/badi-events.js"></script>
+<<<<<<< HEAD
+=======
+		<!--
+	  		Note: badidate must load after luxon
+			This is not really sustainable since you cannot
+			guarantee when the HTTP request for a script will comeback.
+			We can tighten up this later though.
+		-->
+		<script src="js/badidate.js"></script>
+>>>>>>> 166eabfeec2bfe413d9644f82d87f744504822b9
 	</body>
 </html>

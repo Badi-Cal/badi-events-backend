@@ -21,3 +21,12 @@ All this is to keep credentials out of version control.
 
 You need to run all the local `main` package files together with the `run` command.
 
+## Requirements
+
+### BadiDate
+
+[BadiDate by Jan Greis](https://github.com/janrg/badiDate/)
+
+### Luxon
+
+Required by BadiDate. [A subproject of Moment.js](https://moment.github.io/luxon/)
