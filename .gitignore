@@ -1,9 +1,8 @@
 /.env
-/token.json
 <<<<<<< HEAD
-/credentials.json
 /nohup.out
-/html
+/token.json
+/credentials.json
 /events.json
 /bk.cred
 /vault
