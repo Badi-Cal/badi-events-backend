@@ -61,7 +61,6 @@ func Connection() *gorm.DB {
 	if connection == nil {
 		var err error = nil
 		dsn := makeBasicDsn()
-		fmt.Println(dsn)
 		connection, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 		if err != nil {
 			log.Fatalf("Unable to connect to %s. %v\n", DatabaseName(), err)

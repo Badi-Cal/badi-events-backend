@@ -11,7 +11,7 @@ const (
 )
 
 type Notification struct {
-	ID             uint `gorm:"primaryKey"`
+	ID             uint `gorm:"primaryKey" json:"id"`
 	event_id       string
 	body           string
 	scheduled_time time.Time
