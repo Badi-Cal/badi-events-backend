@@ -54,6 +54,23 @@ The `down` action undoes your migration, which is useful for testing the migrati
 
 You need to run all the local `main` package files together with the `run` command.
 
+## Testing
+
+Run current tests:
+
+```
+go test ./controllers/
+```
+
+The controller tests stub the model layer of the code using [mockgen](https://github.com/golang/mock), rather than using database seeds (at the moment).
+
+To create or update the stubs when one has updated the model layer, run (inserting the correct model file):
+```
+mockgen -source=models/notifications.go -destination=mock_models/notifications.g
+```
+
+`mockgen` uses interfaces to create the mock, so make sure you have updated the interfaces in the model layer if you add any functions.
+
 ## Requirements
 
 ### BadiDate
