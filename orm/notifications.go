@@ -12,11 +12,11 @@ const (
 
 type Notification struct {
 	ID             uint `gorm:"primaryKey" json:"id"`
-	event_id       string
-	body           string
-	scheduled_time time.Time
-	status         NotificationStatus
-	attempts       int
+	Event_id       string
+	Body           string
+	Scheduled_time time.Time
+	Status         NotificationStatus
+	Attempts       int
 	CreatedAt      time.Time // magic gorm name
 	UpdatedAt      time.Time // magic gorm name
 }
