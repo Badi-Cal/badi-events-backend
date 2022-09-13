@@ -38,6 +38,8 @@ form {
 fieldset {
 	border: none;
 }
+<<<<<<< HEAD
+=======
 
 table {
 	border-collapse: collapse;
@@ -47,3 +49,4 @@ table tr td {
 	padding: 0.25em 0.5em;
 	text-align: left;
 }
+>>>>>>> 166eabfeec2bfe413d9644f82d87f744504822b9

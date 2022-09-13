@@ -1,2 +1,10 @@
 /.env
+/nohup.out
 /token.json
+/credentials.json
+/events.json
+/bk.cred
+/vault
+/badidate
+/luxon
+/badi-events-backend

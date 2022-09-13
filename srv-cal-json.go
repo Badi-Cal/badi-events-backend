@@ -70,7 +70,7 @@ func saveToken(path string, token *oauth2.Token) {
 	json.NewEncoder(f).Encode(token)
 }
 
-// polls Google Calendar and writes teh response to http
+// polls Google Calendar and writes the response to http
 func jsonHandler(w http.ResponseWriter, r *http.Request) {
 	b, err := ioutil.ReadFile("credentials.json")
 	if err != nil {
@@ -78,7 +78,7 @@ func jsonHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// If modifying these scopes, delete your previously saved token.json.
-	config, err := google.ConfigFromJSON(b, calendar.CalendarReadonlyScope)
+	config, err := google.ConfigFromJSON(b, calendar.CalendarScope)
 	if err != nil {
 		log.Fatalf("Unable to parse client secret file to config: %v", err)
 	}
