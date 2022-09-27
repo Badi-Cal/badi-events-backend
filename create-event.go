@@ -92,20 +92,20 @@ func main() {
 
         t := time.Now().Format(time.RFC3339)
         event := &calendar.Event{
-            Summary: "Birth of the Báb",
+            Summary: "Conferencia, Poder de Construcción de la Sociedad, pt2",
             Location: "Otamendi 215, Capital Federal, Buenos Aires, Argentina",
-            Description: "The end of the Adamic Cycle.",
+            Description: "continuacion de reflexionar y pner en acción el plan de 9 años.",
             Start: &calendar.EventDateTime{
-                DateTime: "2022-10-25T19:00:00-03:00",
+                DateTime: "2022-10-15T19:00:00-03:00",
                 TimeZone: "America/Argentina/Buenos_Aires",
             },
             End: &calendar.EventDateTime{
-                DateTime: "2022-10-25T21:00:00-03:00",
+                DateTime: "2022-10-15T21:00:00-03:00",
                 TimeZone: "America/Argentina/Buenos_Aires",
             },
             Attendees: []*calendar.EventAttendee{
-                &calendar.EventAttendee{Email:"erik@monti.org"},
-                &calendar.EventAttendee{Email:"eventos@xn-porteo-0wa.com"},
+                &calendar.EventAttendee{Email:"lpage@example.com"},
+                &calendar.EventAttendee{Email:"sbrin@example.com"},
             },
         }
 
