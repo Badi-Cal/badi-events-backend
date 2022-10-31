@@ -10,12 +10,12 @@ import (
 )
 
 type NotificationPayload struct {
-	ID             uint     `json:"id"`
-	Event_id       string   `json:"event_id"`
-	Body           string   `json:"body"`
-	Scheduled_time JSONTime `json:"scheduled_time"`
-	Status         string   `json:"status"`
-	Attempts       int      `json:"attempts"`
+	ID             uint         `json:"id"`
+	Event_id       string       `json:"event_id"`
+	Body           string       `json:"body"`
+	Scheduled_time orm.JSONTime `json:"scheduled_time"`
+	Status         string       `json:"status"`
+	Attempts       int          `json:"attempts"`
 }
 
 var statusMap = map[int]string{
@@ -33,7 +33,7 @@ func toNotificationPayload(notification orm.Notification) NotificationPayload {
 		ID:             notification.ID,
 		Event_id:       notification.Event_id,
 		Body:           notification.Body,
-		Scheduled_time: JSONTime(notification.Scheduled_time),
+		Scheduled_time: orm.JSONTime(notification.Scheduled_time),
 		Status:         StatusString(notification.Status),
 		Attempts:       notification.Attempts,
 	}
@@ -43,7 +43,6 @@ func NotificationsCreate(w http.ResponseWriter, r *http.Request, app *App) {
 	body, _ := ioutil.ReadAll(r.Body)
 	var data models.NotificationCreatePayload
 	json.Unmarshal([]byte(body), &data)
-	b, _ := json.Marshal(data)
 	notification, err0 := app.Models.Notifications.Create(data)
 	if err0 != nil {
 		w.WriteHeader(http.StatusInternalServerError)

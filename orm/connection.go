@@ -14,7 +14,7 @@ import (
 var connection *gorm.DB
 var databaseName = "notifications"
 var Charset = "utf8mb4"
-var Collation = "utf8mb4_bin"
+var Collation = "utf8mb4_unicode_ci"
 
 type DatabaseConfig struct {
 	Username     string

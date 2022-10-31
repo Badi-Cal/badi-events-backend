@@ -14,7 +14,7 @@ type Notification struct {
 	ID             uint `gorm:"primaryKey" json:"id"`
 	Event_id       string
 	Body           string
-	Scheduled_time time.Time
+	Scheduled_time JSONTime
 	Status         NotificationStatus
 	Attempts       int
 	CreatedAt      time.Time // magic gorm name

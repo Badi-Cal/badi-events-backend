@@ -21,6 +21,7 @@ func TestNotificationsCreate(t *testing.T) {
 	defer ctrl.Finish()
 	app := CreateMockApp(ctrl)
 	now := time.Now()
+	jnow := orm.JSONTime(now)
 	now_str := now.Format(time.RFC3339)
 	m := mock_models.NewMockINotifications(ctrl)
 	m.
@@ -34,7 +35,7 @@ func TestNotificationsCreate(t *testing.T) {
 			ID:             1,
 			Event_id:       "abc",
 			Body:           "my_body",
-			Scheduled_time: now,
+			Scheduled_time: jnow,
 			Status:         orm.Unsent,
 			Attempts:       0,
 			CreatedAt:      now,
@@ -45,7 +46,7 @@ func TestNotificationsCreate(t *testing.T) {
 
 	bodyReader := strings.NewReader(fmt.Sprintf(`{"event_id": "abc", "body": "my_body", "scheduled_time": "%s"}`, now_str))
 	r := httptest.NewRequest(
-		http.MethodPut,
+		http.MethodPost,
 		"/notifications",
 		bodyReader,
 	)
@@ -62,12 +63,13 @@ func TestNotificationsIndex(t *testing.T) {
 	defer ctrl.Finish()
 	app := CreateMockApp(ctrl)
 	now := time.Now()
+	jnow := orm.JSONTime(now)
 	now_str := now.Format(time.RFC3339)
 	records := []*orm.Notification{{
 		ID:             1,
 		Event_id:       "abc",
 		Body:           "my_body",
-		Scheduled_time: now,
+		Scheduled_time: jnow,
 		Status:         orm.Unsent,
 		Attempts:       0,
 		CreatedAt:      now,

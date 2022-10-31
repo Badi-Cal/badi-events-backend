@@ -66,7 +66,7 @@ The controller tests stub the model layer of the code using [mockgen](https://gi
 
 To create or update the stubs when one has updated the model layer, run (inserting the correct model file):
 ```
-mockgen -source=models/notifications.go -destination=mock_models/notifications.g
+mockgen -source=models/notifications.go -destination=mock_models/notifications.go
 ```
 
 `mockgen` uses interfaces to create the mock, so make sure you have updated the interfaces in the model layer if you add any functions.
