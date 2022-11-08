@@ -96,16 +96,16 @@ func main() {
             Location: "Otamendi 215, Capital Federal, Buenos Aires, Argentina",
             Description: "continuacion de reflexionar y pner en acción el plan de 9 años.",
             Start: &calendar.EventDateTime{
-                DateTime: "2022-10-15T19:00:00-03:00",
+                DateTime: "2022-10-15T12:00:00-03:00",
                 TimeZone: "America/Argentina/Buenos_Aires",
             },
             End: &calendar.EventDateTime{
-                DateTime: "2022-10-15T21:00:00-03:00",
+                DateTime: "2022-10-15T19:00:00-03:00",
                 TimeZone: "America/Argentina/Buenos_Aires",
             },
             Attendees: []*calendar.EventAttendee{
-                &calendar.EventAttendee{Email:"lpage@example.com"},
-                &calendar.EventAttendee{Email:"sbrin@example.com"},
+                &calendar.EventAttendee{Email:"erik@monti.org"},
+                &calendar.EventAttendee{Email:"monti@xn--porteo-0wa.com"},
             },
         }
 

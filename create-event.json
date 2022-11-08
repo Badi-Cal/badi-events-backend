@@ -1,0 +1,39 @@
+{
+      "attendees": [
+        {
+          "displayName": "Erik Monti",
+          "email": "erik@monti.org",
+        },
+        {
+          "email": "monti@xn--porteo-0wa.com",
+          "organizer": true,
+          "self": true
+        },
+		{
+          "displayName": "Kalimát",
+          "email": "kalimat@monti.org",
+        },
+        {
+          "displayName": "Badí Calendar",
+          "email": "nur@xn--bad-tma.com",
+          "responseStatus": "needsAction"
+        }
+      ],
+      "description": "Fiesta de Ilm 179, los Bahá’ís de Buenos Aires",
+      "end": {
+        "dateTime": "2022-10-15T19:30:00-21:00",
+        "timeZone": "America/Argentina/Buenos_Aires"
+      },
+      "eventType": "default",
+      "kind": "calendar#event",
+      "location": "Otamendi 215, Capital Federal, Buenos Aires, Argentina",
+      "reminders": {
+        "useDefault": true
+      },
+      "sequence": 1,
+      "start": {
+        "dateTime": "2022-10-15T19:30:00-21:00",
+        "timeZone": "America/Argentina/Buenos_Aires"
+      },
+      "summary": "Fiesta de Ilm 179"
+    }

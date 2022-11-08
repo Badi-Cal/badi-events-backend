@@ -88,13 +88,14 @@ func jsonHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatalf("Unable to retrieve Calendar client: %v", err)
 	}
-
+    // TimeMax(month)
     // SingleEvents(true).TimeMin(t).MaxResults(30).OrderBy("startTime").Do()
 	t := time.Now().Format(time.RFC3339)
 	// fnt := time.Now()
-	fortnight := time.Now().AddDate(0, 0, 14).Format(time.RFC3339)
+	//fortnight := time.Now().AddDate(0, 0, 14).Format(time.RFC3339)
+	// month := time.Now().AddDate(0, 0, 30).Format(time.RFC3339)
 	events, err := srv.Events.List("primary").ShowDeleted(false).
-		SingleEvents(true).TimeMin(t).TimeMax(fortnight).OrderBy("startTime").Do()
+		SingleEvents(true).TimeMin(t).MaxResults(30).OrderBy("startTime").Do()
 	if err != nil {
 		log.Fatalf("Unable to retrieve next ten of the user's events: %v", err)
 	}

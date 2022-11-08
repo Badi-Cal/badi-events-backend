@@ -1,0 +1,56 @@
+{
+      "attendees": [
+        {
+          "displayName": "Erik Monti",
+          "email": "erik@monti.org",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "monti@xn--porteo-0wa.com",
+          "organizer": true,
+          "responseStatus": "needsAction",
+          "self": true
+        },
+		{
+          "displayName": "Kalimát",
+          "email": "kalimat@monti.org",
+          "responseStatus": "needsAction"
+        },
+        {
+          "email": "eventos@xn--porteo-0wa.com",
+          "responseStatus": "needsAction"
+        }
+      ],
+      "created": "2022-09-27T17:05:21.000Z",
+      "creator": {
+        "email": "monti@xn--porteo-0wa.com",
+        "self": true
+      },
+      "description": "continuacion de reflexionar y poner en acción el plan de 9 años.",
+      "end": {
+        "dateTime": "2022-10-15T18:00:00-03:00",
+        "timeZone": "America/Argentina/Buenos_Aires"
+      },
+      "etag": "\"3328622655372000\"",
+      "eventType": "default",
+      "htmlLink": "https://www.google.com/calendar/event?eid=c3FjdnE3ODhrdTZzdTJ1dWpwOGY1ZmM3aWcgbW9udGlAeG4tLXBvcnRlby0wd2EuY29t",
+      "iCalUID": "sqcvq788ku6su2uujp8f5fc7ig@google.com",
+      "id": "sqcvq788ku6su2uujp8f5fc7ig",
+      "kind": "calendar#event",
+      "location": "Otamendi 215, Capital Federal, Buenos Aires, Argentina",
+      "organizer": {
+        "email": "monti@xn--porteo-0wa.com",
+        "self": true
+      },
+      "reminders": {
+        "useDefault": true
+      },
+      "sequence": 1,
+      "start": {
+        "dateTime": "2022-10-15T12:00:00-03:00",
+        "timeZone": "America/Argentina/Buenos_Aires"
+      },
+      "status": "confirmed",
+      "summary": "Conferencias Globales, segunda parte",
+      "updated": "2022-09-27T20:42:07.686Z"
+    }
