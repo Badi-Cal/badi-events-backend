@@ -1,33 +1,33 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
+    "encoding/json"
+    "fmt"
+    "io/ioutil"
     "os"
 )
 
 type Attendees struct {
-	Name        string  `json: "displayName"`
-	Email       string  `json: "email"`
-	ResponseStatus    string  `json: "responseStatus"`
+    Name        string  `json: "displayName"`
+    Email       string  `json: "email"`
+    Response    string  `json: "responseStatus"`
 }
 
 type Event struct {
-    ID          string
-    Description string
-    Start       []struct {
+    ID          string `json: "id"`
+    Summary string `json: "summary"`
+    Start       struct {
         DateTime    string `json: "dateTime"`
         TimeZone    string `json: "timeZone"`
     } `json:"start"`
-    Attendee    []Attendees `json:"attendies"`
+    Attendee    []Attendees `json:"attendees"`
 }
 type Cal struct {
     Cal []Event `json:"items"`
 }
 
 func main() {
-	// Open our jsonFile
+    // Open our jsonFile
     file, errf := os.Open("events.json")
     // if we os.Open returns an error then handle it
     if errf != nil {
@@ -38,7 +38,7 @@ func main() {
         fmt.Println("error:", errf)
     }
 
-	data := Cal{}
+    data := Cal{}
 
     err := json.Unmarshal(blob, &data)
     if err != nil {
@@ -46,17 +46,22 @@ func main() {
     }
     //fmt.Println("First array:", len(data.Cal))
     //fmt.Println(data.Cal)
-	for i := 0; i < len(data.Cal); i++ {
-		fmt.Println("ID: ", data.Cal[i].ID)
-		fmt.Println("Description: ", data.Cal[i].Description)
-		//fmt.Println("Sart Time: ", data.Cal[i].Start.DateTime)
-        //fmt.Println("Time Zone: ", data.Cal[i].Start.TimeZone)
+    for i := 0; i < len(data.Cal); i++ {
+        var item = data.Cal[i]
+		fmt.Println("ID: ", item.ID)
+		fmt.Println("Description: ", item.Summary)
+		fmt.Println("Sart Time: ", item.Start.DateTime)
+        fmt.Println("Time Zone: ", item.Start.TimeZone)
 		fmt.Println("Attendees:")
-        for p := 0; p < len(data.Cal[i].Attendee); p++ {
-            fmt.Println("    Name: ", data.Cal[i].Attendee[p].Name)
-            fmt.Println("   Email: ", data.Cal[i].Attendee[p].Email)
-            fmt.Println("Response: ", data.Cal[i].Attendee[p].Response)
+        done := false
+        for p := 0; p < len(item.Attendee); p++ {
+            fmt.Println("    Name: ", item.Attendee[p].Name)
+            fmt.Println("   Email: ", item.Attendee[p].Email)
+            fmt.Println("Response: ", item.Attendee[p].Response)
+            fmt.Printf("%v", item)
+            done = true
         }
-	}
+        if done {break}
+    }
 
 }
