@@ -8,17 +8,17 @@ import (
 )
 
 type Attendees struct {
-    Name        string  `json: "displayName"`
-    Email       string  `json: "email"`
-    Response    string  `json: "responseStatus"`
+    DisplayName        string  `json:"displayName"`
+    Email       string  `json:"email"`
+    Response    string  `json:"responseStatus"`
 }
 
 type Event struct {
-    ID          string `json: "id"`
-    Summary string `json: "summary"`
+    ID          string `json:"id"`
+    Summary string `json:"summary"`
     Start       struct {
-        DateTime    string `json: "dateTime"`
-        TimeZone    string `json: "timeZone"`
+        DateTime    string `json:"dateTime"`
+        TimeZone    string `json:"timeZone"`
     } `json:"start"`
     Attendee    []Attendees `json:"attendees"`
 }
@@ -53,15 +53,15 @@ func main() {
 		fmt.Println("Sart Time: ", item.Start.DateTime)
         fmt.Println("Time Zone: ", item.Start.TimeZone)
 		fmt.Println("Attendees:")
-        done := false
+        //done := false
         for p := 0; p < len(item.Attendee); p++ {
-            fmt.Println("    Name: ", item.Attendee[p].Name)
+            fmt.Println("    Name: ", item.Attendee[p].DisplayName)
             fmt.Println("   Email: ", item.Attendee[p].Email)
             fmt.Println("Response: ", item.Attendee[p].Response)
-            fmt.Printf("%v", item)
-            done = true
+            //fmt.Printf("%v", item)
+            //done = true
         }
-        if done {break}
+        //if done {break}
     }
 
 }
