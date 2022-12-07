@@ -13,7 +13,7 @@ fi
 backtick='`'
 database="${backtick}notifications-$BEB_ENV$backtick"
 echo "
-CREATE DATABASE IF NOT EXISTS $database CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+CREATE DATABASE IF NOT EXISTS $database CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE $database;
 CREATE TABLE IF NOT EXISTS schema_migrations (
     migration varchar(14) NOT NULL DEFAULT '',
