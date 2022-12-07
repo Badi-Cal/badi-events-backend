@@ -1,6 +1,9 @@
 package main
 
 import (
+	"badi-cal/badi-events-backend/controllers"
+	"badi-cal/badi-events-backend/models"
+	"badi-cal/badi-events-backend/orm"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -99,23 +102,28 @@ func jsonHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatalf("Unable to retrieve next ten of the user's events: %v", err)
 	}
-    json.NewEncoder(w).Encode(events)
+	json.NewEncoder(w).Encode(events)
 }
 
 // type events map[string]string
 
 func main() {
-    http.HandleFunc("/foo", jsonHandler)
-    log.Fatal(http.ListenAndServe(":8080", nil))
+	db := orm.Connection()
+	app := &controllers.App{Models: models.GetModels(db)}
+	http.HandleFunc("/foo", jsonHandler)
+	for route, _ := range controllers.Routes {
+		http.HandleFunc(route, app.Route)
+	}
 
-    // fmt.Printf("events: %s\n", events)
-    // h :=events
-    // b, err := json.Marshal(events)
-    // http.HandleFunc("/foo", b)
-    // log.Fatal(http.ListenAndServe(":8080", nil))
-    // fmt.Printf("%s\n", b)
-    // if err != nil {
-        // log.Fatalf("Eh, oops: %v", err)
-    // }
+	log.Fatal(http.ListenAndServe(":8080", nil))
+
+	// fmt.Printf("events: %s\n", events)
+	// h :=events
+	// b, err := json.Marshal(events)
+	// http.HandleFunc("/foo", b)
+	// log.Fatal(http.ListenAndServe(":8080", nil))
+	// fmt.Printf("%s\n", b)
+	// if err != nil {
+	// log.Fatalf("Eh, oops: %v", err)
+	// }
 }
-
