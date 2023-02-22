@@ -1,0 +1,81 @@
+{
+    "event": 
+  {
+            "attachments": [
+                {
+                    "fileId": "1Fm_9f44Eu07OHSASp6ge0Iv5vK7FQqUN",
+                    "fileUrl": "https://drive.google.com/open?id=1Fm_9f44Eu07OHSASp6ge0Iv5vK7FQqUN&authuser=2",
+                    "iconLink": "https://drive-thirdparty.googleusercontent.com/16/type/image/jpeg",
+                    "mimeType": "image/jpeg",
+                    "title": "Schuyler_County_Watkins_Glen_State_Park_Tr_d592d503-46d5-4468-93e7-3072f4da0134.jpg"
+                }
+            ],
+            "attendees": [
+                {
+                    "displayName": "Eventos Porteños",
+                    "email": "eventos@xn--porteo-0wa.com"
+                },
+                {
+                    "displayName": "Erik Monti",
+                    "email": "erik@monti.org",
+                    "organizer": true,
+                    "responseStatus": "accepted"
+                },
+                {
+                    "email": "monti@xn--porteo-0wa.com",
+                    "responseStatus": "needsAction",
+                    "self": true
+                }
+            ],
+            "conferenceData": {
+                "conferenceId": "oxg-fhjn-cpr",
+                "conferenceSolution": {
+                    "iconUri": "https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v6/web-512dp/logo_meet_2020q4_color_2x_web_512dp.png",
+                    "key": {
+                        "type": "hangoutsMeet"
+                    },
+                    "name": "Google Meet"
+                },
+                "entryPoints": [
+                    {
+                        "entryPointType": "video",
+                        "label": "meet.google.com/oxg-fhjn-cpr",
+                        "uri": "https://meet.google.com/oxg-fhjn-cpr"
+                    },
+                    {
+                        "entryPointType": "phone",
+                        "label": "+1 636-336-2054",
+                        "pin": "768294327",
+                        "regionCode": "US",
+                        "uri": "tel:+1-636-336-2054"
+                    }
+                ]
+            },
+            "creator": {
+                "displayName": "Erik Monti",
+                "email": "erik@monti.org"
+            },
+            "description": "Festijamos en la sede Bahá'í",
+            "end": {
+                "dateTime": "2022-12-30T21:30:00-03:00",
+                "timeZone": "America/Argentina/Buenos_Aires"
+            },
+            "eventType": "default",
+            "guestsCanModify": true,
+            "hangoutLink": "https://meet.google.com/oxg-fhjn-cpr",
+            "kind": "calendar#event",
+            "Location": "Otamendi 215, Capital Federal, Buenos Aires, Argentina",
+            "organizer": {
+                "displayName": "Erik Monti",
+                "email": "erik@monti.org"
+            },
+            "reminders": {
+                "useDefault": true
+            },
+            "start": {
+                "dateTime": "2022-12-30T19:00:00-03:00",
+                "timeZone": "America/Argentina/Buenos_Aires"
+            },
+            "summary": "Fiesta de 19 días, Sharaf, Honor"
+        }
+}
