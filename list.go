@@ -72,6 +72,12 @@ func saveToken(path string, token *oauth2.Token) {
 
 // polls Google Calendar and writes the response to http
 func jsonHandler(w http.ResponseWriter, r *http.Request) {
+	// Set up the Secret Manager client
+    // ctx := context.Background()
+    // b, err := secretmanager.NewClient(ctx, option.WithCredentialsFile("/credentials.json"))
+    // if err != nil {
+		// log.Fatalf("Unable to read client secret file: %v", err)
+    // }
 	b, err := ioutil.ReadFile("credentials.json")
 	if err != nil {
 		log.Fatalf("Unable to read client secret file: %v", err)
@@ -105,17 +111,8 @@ func jsonHandler(w http.ResponseWriter, r *http.Request) {
 // type events map[string]string
 
 func main() {
-    http.HandleFunc("/foo", jsonHandler)
+    http.HandleFunc("/", jsonHandler)
     log.Fatal(http.ListenAndServe(":8080", nil))
 
-    // fmt.Printf("events: %s\n", events)
-    // h :=events
-    // b, err := json.Marshal(events)
-    // http.HandleFunc("/foo", b)
-    // log.Fatal(http.ListenAndServe(":8080", nil))
-    // fmt.Printf("%s\n", b)
-    // if err != nil {
-        // log.Fatalf("Eh, oops: %v", err)
-    // }
 }
 
