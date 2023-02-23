@@ -1,0 +1,49 @@
+* {
+	font-family: Tahoma, Verdana, Arial, sans-serif;
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	display: table;
+	height: 100%;
+	width: auto;
+	text-align: center;
+	margin: 0 auto;
+}
+
+body > header,
+body > article,
+body > footer {
+	display: table-row;
+	height: 1px;
+	width: 100%;
+}
+
+body > article {
+	height: 100%;
+}
+
+body > header > div,
+body > article > div,
+body > footer > div {
+	display: table-cell;
+}
+
+form {
+	text-align: left;
+}
+
+fieldset {
+	border: none;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table tr td {
+	padding: 0.25em 0.5em;
+	text-align: left;
+}
