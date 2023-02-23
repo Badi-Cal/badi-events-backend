@@ -1,4 +1,4 @@
-FROM golang:1.18
+FROM golang:1.19
 SHELL ["/bin/bash", "-c"]
 
 RUN mkdir -p /app
@@ -10,4 +10,4 @@ COPY . /app
 EXPOSE 8080
 RUN go mod download
 
-ENTRYPOINT go run srv-cal-json.go
+ENTRYPOINT go run list.go
