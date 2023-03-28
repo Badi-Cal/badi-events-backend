@@ -7,9 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-    "os/exec"
-	"runtime"
-    "time"
+	"time"
 
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
@@ -37,68 +35,16 @@ func getTokenFromWeb(config *oauth2.Config) *oauth2.Token {
 	fmt.Printf("Go to the following link in your browser then type the "+
 		"authorization code: \n%v\n", authURL)
 
-
-	http.HandleFunc("/callback", func(w http.ResponseWriter, r *http.Request) {
-        authCode := r.URL.Query().Get("code")
-        if authCode == "" {
-            http.Error(w, "Unable to read authorization code", http.StatusBadRequest)
-            return
-        }
-
-        tok, err := config.Exchange(context.Background(), authCode)
-        if err != nil {
-            http.Error(w, "Unable to retrieve token from web", http.StatusBadRequest)
-            return
-        }
-        fmt.Fprintf(w, "Token successfully retrieved. You can close this window now.")
-        return
-	})
-
-	go http.ListenAndServe(":8080", nil)
-
-	// Open the browser to the authURL
-	err := openURL(authURL)
-	if err != nil {
-        log.Fatalf("Unable to open browser for authURL: %v", err)
+	var authCode string
+	if _, err := fmt.Scan(&authCode); err != nil {
+		log.Fatalf("Unable to read authorization code: %v", err)
 	}
 
-	// Wait for the user to complete the authentication flow in the browser
-	for {
-        time.Sleep(1 * time.Second)
-
-        resp, err := http.Get("http://localhost:8080/callback")
-        if err != nil {
-            continue
-        }
-        defer resp.Body.Close()
-
-        if resp.StatusCode == http.StatusOK {
-            break
-        }
-	}
-
-    tok, err := config.TokenSource(context.Background(), &oauth2.Token{}).Token()
+	tok, err := config.Exchange(context.TODO(), authCode)
 	if err != nil {
-		log.Fatalf("Unable to get token from TokenSource: %v", err)
+		log.Fatalf("Unable to retrieve token from web: %v", err)
 	}
 	return tok
-
-}
-
-// Helper function to open the browser with the specified URL
-func openURL(url string) error {
-    var err error
-    switch runtime.GOOS {
-    case "linux":
-        err = exec.Command("xdg-open", url).Start()
-    case "windows":
-        err = exec.Command("rundll32", "url.dll,FileProtocolHandler", url).Start()
-    case "darwin":
-        err = exec.Command("open", url).Start()
-    default:
-        err = fmt.Errorf("unsupported platform")
-    }
-    return err
 }
 
 // Retrieves a token from a local file.
@@ -126,6 +72,12 @@ func saveToken(path string, token *oauth2.Token) {
 
 // polls Google Calendar and writes the response to http
 func jsonHandler(w http.ResponseWriter, r *http.Request) {
+	// Set up the Secret Manager client
+    // ctx := context.Background()
+    // b, err := secretmanager.NewClient(ctx, option.WithCredentialsFile("/credentials.json"))
+    // if err != nil {
+		// log.Fatalf("Unable to read client secret file: %v", err)
+    // }
 	b, err := ioutil.ReadFile("credentials.json")
 	if err != nil {
 		log.Fatalf("Unable to read client secret file: %v", err)
