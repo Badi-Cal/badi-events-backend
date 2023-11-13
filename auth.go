@@ -24,7 +24,7 @@ type Credentials struct {
 
 func main() {
 	// Read the OAuth2 configuration from the credentials.json file
-	file, err := os.Open("credentials.json")
+	file, err := os.Open("badi-cal-creds.json")
 	if err != nil {
 		panic(err)
 	}

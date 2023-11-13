@@ -23,6 +23,7 @@ func getClient(config *oauth2.Config) *http.Client {
 	tokFile := "token.json"
 	tok, err := tokenFromFile(tokFile)
 	if err != nil {
+        os.Remove(tokFile)  // delete the token file
 		tok = getTokenFromWeb(config)
 		saveToken(tokFile, tok)
 	}
@@ -112,7 +113,8 @@ func jsonHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
     http.HandleFunc("/", jsonHandler)
-    log.Fatal(http.ListenAndServe(":8080", nil))
+    // log.Fatal(http.ListenAndServe(":8080", nil))
+    log.Fatal(http.ListenAndServeTLS(":8080", "/etc/letsencrypt/live/xn--bad-tma.com/fullchain.pem", "/etc/letsencrypt/live/xn--bad-tma.com/privkey.pem", nil))
 
 }
 
