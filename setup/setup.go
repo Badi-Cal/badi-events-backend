@@ -42,6 +42,7 @@ import (
 )
 
 var ` + migrationName + ` = Migration{
+	name: "` + migrationName + `",
 	version: "` + timestamp + `",
 	up: func (db *gorm.DB) {
 

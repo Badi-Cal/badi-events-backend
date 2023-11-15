@@ -16,6 +16,10 @@ var Routes = map[string]HandlerDict{
 		http.MethodGet:  NotificationsIndex,
 		http.MethodPost: NotificationsCreate,
 	},
+	"/users": {
+		http.MethodGet:  UsersIndex,
+		http.MethodPost: UsersCreate,
+	},
 }
 
 func (app *App) Route(w http.ResponseWriter, r *http.Request) {

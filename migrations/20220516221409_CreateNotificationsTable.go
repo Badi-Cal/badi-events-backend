@@ -7,6 +7,7 @@ import (
 )
 
 var migration20220516221409_CreateNotificationsTable = Migration{
+	name:    "CreateNotificationsTable",
 	version: "20220516221409",
 	up: func(db *gorm.DB) {
 		db.Migrator().CreateTable(&orm.Notification{})
