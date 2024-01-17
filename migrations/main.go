@@ -15,6 +15,7 @@ type SchemaMigration struct {
 
 type MigrationAction func(db *gorm.DB)
 type Migration struct {
+	name    string
 	version string
 	up      MigrationAction
 	down    MigrationAction
@@ -63,7 +64,11 @@ func main() {
 	}
 
 	command := terminal.GetArg(0)
-	if command == "migrate" {
+	if command == "list" {
+		for _, m := range versions {
+			fmt.Printf("%s - %s\n", m.version, m.name)
+		}
+	} else if command == "migrate" {
 		fmt.Printf("Arrived %v\n", versions)
 		for _, migration := range versions {
 			migration.Migrate()

@@ -36,7 +36,8 @@ We use [Gorm](https://gorm.io/docs/) for ORM and other database queries.
 Schema Migrations are held in the `migrations` folder. You will need to run them once upon every update.
 
 ```shell
-go run migrations/*.go
+# Run all un-run migrations
+go run migrations/*.go migrate
 ```
 
 You can create a new migration with:
@@ -44,9 +45,22 @@ You can create a new migration with:
 go run setup/setup.go create_migration [Name your migration]
 ```
 
-This action will create a new file in the `migrations` folder. It will have an object with two actions `up` and `down`.
+This action will create a new file in the `migrations` folder and the migration will be given a Version number or ID.
+
+You can list all existing migration Versions with:
+
+```shell
+go run migrations/*.go list
+```
+It will have an object with two actions `up` and `down`.
 The `up` action will be where you will put [migration code](https://gorm.io/docs/migration.html).
+```shell
+go run migrations/*.go migrate:up VERSION_NUMBER
+```
 The `down` action undoes your migration, which is useful for testing the migration code and undoing changes from a bad deploy.
+```shell
+go run migrations/*.go migrate:down VERSION_NUMBER
+```
 
 ## Run Script
 

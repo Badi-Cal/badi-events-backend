@@ -10,6 +10,7 @@ func CreateMockApp(ctrl *gomock.Controller) *App {
 	return &App{
 		Models: &models.Models{
 			Notifications: nil,
+			Users:         nil,
 		},
 	}
 }
