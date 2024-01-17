@@ -3,6 +3,7 @@ package controllers
 import (
 	"badi-cal/badi-events-backend/models"
 	"badi-cal/badi-events-backend/orm"
+	"badi-cal/badi-events-backend/util"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -43,7 +44,7 @@ func toUserPayload(user orm.User) UserPayload {
 		WhatsAppId:       user.WhatsAppId,
 		WhatAppToken:     user.WhatAppToken,
 		Timezone:         user.Timezone,
-		FirstDayOfWeek:   models.FirstDayOfWeekString(user.FirstDayOfWeek),
+		FirstDayOfWeek:   util.FirstDayOfWeekString(user.FirstDayOfWeek),
 	}
 }
 

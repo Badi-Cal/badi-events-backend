@@ -1,12 +1,8 @@
 package orm
 
-import "time"
-
-type FirstDayOfWeek int
-
-const (
-	Sunday FirstDayOfWeek = 0
-	Monday                = 1
+import (
+	"badi-cal/badi-events-backend/util"
+	"time"
 )
 
 type User struct {
@@ -24,7 +20,7 @@ type User struct {
 	WhatsAppId       string
 	WhatAppToken     string
 	Timezone         string
-	FirstDayOfWeek   FirstDayOfWeek
+	FirstDayOfWeek   util.FirstDayOfWeek
 
 	CreatedAt time.Time // magic gorm name
 	UpdatedAt time.Time // magic gorm name

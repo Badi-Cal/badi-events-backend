@@ -4,6 +4,7 @@ import (
 	"badi-cal/badi-events-backend/mock_models"
 	"badi-cal/badi-events-backend/models"
 	"badi-cal/badi-events-backend/orm"
+	"badi-cal/badi-events-backend/util"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -54,7 +55,7 @@ func TestUsersCreate(t *testing.T) {
 			WhatsAppId:       "bobWhatsApp",
 			WhatAppToken:     "bobWhatsAppToken",
 			Timezone:         "America/New_York",
-			FirstDayOfWeek:   models.FirstDayOfWeekFromString("Monday"),
+			FirstDayOfWeek:   util.FirstDayOfWeekFromString("Monday"),
 			CreatedAt:        now,
 			UpdatedAt:        now,
 		}, nil).
@@ -112,7 +113,7 @@ func TestUsersIndex(t *testing.T) {
 		WhatsAppId:       "bobWhatsApp",
 		WhatAppToken:     "bobWhatsAppToken",
 		Timezone:         "America/New_York",
-		FirstDayOfWeek:   models.FirstDayOfWeekFromString("Monday"),
+		FirstDayOfWeek:   util.FirstDayOfWeekFromString("Monday"),
 		CreatedAt:        now,
 		UpdatedAt:        now,
 	}}

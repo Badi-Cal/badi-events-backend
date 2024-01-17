@@ -2,6 +2,7 @@ package models
 
 import (
 	"badi-cal/badi-events-backend/orm"
+	"badi-cal/badi-events-backend/util"
 
 	"gorm.io/gorm"
 )
@@ -32,25 +33,6 @@ type UserCreatePayload struct {
 	FirstDayOfWeek   string `json:"first_day_of_week"`
 }
 
-var firstDayOfWeekMap = map[orm.FirstDayOfWeek]string{
-	0: "Sunday",
-	1: "Monday",
-}
-
-func FirstDayOfWeekString(dayOfWeek orm.FirstDayOfWeek) string {
-	return firstDayOfWeekMap[dayOfWeek]
-}
-
-func FirstDayOfWeekFromString(str string) orm.FirstDayOfWeek {
-	for key, val := range firstDayOfWeekMap {
-		if val == str {
-			return key
-		}
-	}
-
-	return orm.Sunday
-}
-
 func MakeUsers(db *gorm.DB) *Users {
 	return &Users{
 		db: db,
@@ -72,7 +54,7 @@ func (n *Users) Create(payload UserCreatePayload) (*orm.User, error) {
 		WhatsAppId:       payload.WhatsAppId,
 		WhatAppToken:     payload.WhatAppToken,
 		Timezone:         payload.Timezone,
-		FirstDayOfWeek:   FirstDayOfWeekFromString(payload.FirstDayOfWeek),
+		FirstDayOfWeek:   util.FirstDayOfWeekFromString(payload.FirstDayOfWeek),
 	}
 	result := n.db.Create(user)
 	if result.Error != nil {
